@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Січ 24 2025 р., 19:46
+-- Час створення: Січ 27 2025 р., 17:45
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -84,8 +84,8 @@ CREATE TABLE `categorysub` (
 
 INSERT INTO `categorysub` (`id`, `title`) VALUES
 (1, 'clothes'),
-(3, 'accessories'),
-(4, 'shoes');
+(2, 'accessories'),
+(3, 'shoes');
 
 -- --------------------------------------------------------
 
@@ -109,21 +109,51 @@ INSERT INTO `categorysubsub` (`id`, `title`, `pictures_path`, `categorysub_id`, 
 (1, 'jackets_women', '../img/women/clothes/jackets_women.png', 1, 'Куртки'),
 (2, 'jackets_men', '../img/men/clothes/jackets_men.png', 1, 'Куртки'),
 (3, 'jackets_children', '../img/children/clothes/jackets_children.png', 1, 'Куртки'),
-(4, 'pants', '', 1, 'Куртки'),
-(5, 'tshirts', '', 1, 'Куртки'),
-(6, 'thermal_whiteness', '', 1, 'Куртки'),
-(7, 'jerseys', '', 1, 'Куртки'),
-(8, 'shirts', '', 1, 'Куртки'),
-(9, 'sneakers', '', 4, 'Куртки'),
-(10, 'boots', '', 1, 'Куртки'),
-(11, 'kedy', '', 1, 'Куртки'),
-(12, 'flip_flops', '', 1, 'Куртки'),
-(13, 'headwear', '', 1, 'Куртки'),
-(14, 'backpacks', '', 1, 'Куртки'),
-(15, 'scarves', '', 1, 'Куртки'),
-(19, 'gloves', '', 1, 'Куртки'),
-(20, 'down_jackets', '', 1, 'Куртки'),
-(21, 'sweatshirts', '', 1, 'Куртки');
+(4, 'pants_women', '../img/women/clothes/pants_women.png', 1, 'Штани'),
+(5, 'pants_men', '../img/men/clothes/pants_men.png', 1, 'Штани'),
+(6, 'pants_children', '../img/children/clothes/pants_children.png', 1, 'Штани'),
+(7, 'down_jackets_women', '../img/women/clothes/down_jackets_women.png', 1, 'Пуховики'),
+(8, 'down_jackets_men', '../img/men/clothes/down_jackets_men.png', 1, 'Пуховики'),
+(9, 'down_jackets_children', '../img/children/clothes/down_jackets_children.png', 1, 'Пуховики'),
+(10, 'jerseys_women', '../img/women/clothes/jerseys_women.png', 1, 'Майки'),
+(11, 'jerseys_men', '../img/men/clothes/jerseys_men.png', 1, 'Майки'),
+(12, 'jerseys_children', '../img/children/clothes/jerseys_children.png', 1, 'Майки'),
+(13, 'shirts_women', '../img/women/clothes/shirts_women.png', 1, 'Рубашки'),
+(14, 'shirts_men', '../img/men/clothes/shirts_men.png', 1, 'Рубашки'),
+(15, 'shirts_children', '../img/children/clothes/shirts_children.png', 1, 'Рубашки'),
+(16, 'sweatshirts_women', '../img/women/clothes/sweatshirts_women.png', 1, 'Толстовки'),
+(17, 'sweatshirts_men', '../img/men/clothes/sweatshirts_men.png', 1, 'Толстовки'),
+(18, 'sweatshirts_children', '../img/children/clothes/sweatshirts_children.png', 1, 'Толстовки'),
+(19, 'tshirts_women', '../img/women/clothes/t_shirts_women.png', 1, 'Футболки'),
+(20, 'tshirts_men', '../img/men/clothes/t_shirts_men.png', 1, 'Футболки'),
+(21, 'tshirts_children', '../img/children/clothes/t_shirts_children.png', 1, 'Футболки'),
+(22, 'thermal_underwear_women', '../img/women/clothes/thermal_underwear_women.png', 1, 'Термобілизна'),
+(23, 'thermal_underwear_men', '../img/men/clothes/thermal_underwear_men.png', 1, 'Термобілизна'),
+(25, 'thermal_underwear_children', '../img/children/clothes/thermal_underwear_children.png', 1, 'Термобілизна'),
+(26, 'backpacks_women', '../img/women/accessories/backpacks_women.png\r\n', 2, 'Рюкзаки'),
+(27, 'backpacks_men', '../img/men/accessories/backpacks_men.png\r\n', 2, 'Рюкзаки'),
+(28, 'backpacks_children', '../img/children/accessories/backpacks_children.png\r\n', 2, 'Рюкзаки'),
+(29, 'gloves_women', '../img/women/accessories/gloves_women.png', 2, 'Рукавички'),
+(30, 'gloves_men', '../img/men/accessories/gloves_men.png', 2, 'Рукавички'),
+(31, 'gloves_children', '../img/children/accessories/gloves_children.png', 2, 'Рукавички'),
+(32, 'headwear_women', '../img/women/accessories/headwear_women.png', 2, 'Головні убори'),
+(33, 'headwear_men', '../img/men/accessories/headwear_men.png', 2, 'Головні убори'),
+(34, 'headwear_children', '../img/children/accessories/headwear_children.png', 2, 'Головні убори'),
+(35, 'scarves_women', '../img/women/accessories/scarves_women.png', 2, 'Шарфи'),
+(36, 'scarves_men', '../img/men/accessories/scarves_men.png', 2, 'Шарфи'),
+(37, 'scarves_children', '../img/children/accessories/scarves_children.png', 2, 'Шарфи'),
+(38, 'boots_women', '../img/women/shoes/boots_women.png', 3, 'Черевики'),
+(39, 'boots_men', '../img/men/shoes/boots_men.png', 3, 'Черевики'),
+(40, 'boots_children', '../img/children/shoes/boots_children.png', 3, 'Черевики'),
+(41, 'flip_flops_women', '../img/women/shoes/flip_flops_women.png', 3, 'Шльопки'),
+(42, 'flip_flops_men', '../img/men/shoes/flip_flops_men.png', 3, 'Шльопки'),
+(43, 'flip_flops_children', '../img/children/shoes/flip_flops_children.png', 3, 'Шльопки'),
+(44, 'kedy_women', '../img/women/shoes/kedy_women.png', 3, 'Кеди'),
+(45, 'kedy_men', '../img/men/shoes/kedy_men.png', 3, 'Кеди'),
+(46, 'kedy_children', '../img/children/shoes/kedy_children.png', 3, 'Кеди'),
+(47, 'sneakers_women', '../img/women/shoes/sneakers_women.png', 3, 'Кросівки'),
+(50, 'sneakers_men', '../img/men/shoes/sneakers_men.png', 3, 'Кросівки'),
+(51, 'sneakers_children', '../img/children/shoes/sneakers_children.png', 3, 'Кросівки');
 
 -- --------------------------------------------------------
 
@@ -179,7 +209,8 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `product_id`, `comment`, `advantages`, `disadvantages`, `star_quantity`, `user_id`) VALUES
 (8, 1, 'ббббб', '000', 'бюбю', 5, 1),
-(9, 1, 'іва', 'іваі', 'віаів', 0, 1);
+(9, 1, 'іва', 'іваі', 'віаів', 0, 1),
+(10, 1, '1', '1', '1', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -286,12 +317,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `size_id`, `color_id`, `brand_id`, `price`, `material_id`, `country_product_id`, `part_number`, `pictures_path`, `comment_id`, `category_id`, `category_sub_id`, `category_sub_sub_id`) VALUES
-(1, 'Футболка бавовняна жіноча Puma 3 S Baby Tee IU2532 2XS Yellow', 1, 2, 3, 1000.00, 1, 1, '4066757286810', '../img/popular_product/1.png', 0, 1, 1, 1),
+(1, 'Футболка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', './img/popular_product/1.png', 0, 1, 1, 1),
 (2, 'Пуховик чоловічий Protective Down Parka', 3, 2, 2, 3999.00, 1, 1, '4067981263318', './img/popular_product/2.png', 0, 1, 1, 1),
-(3, 'Зимова куртка Outerwear Boy Kids', 1, 1, 2, 3500.00, 1, 2, '4067981263318', './img/popular_product/3.png', 0, 1, 1, 1),
+(3, 'Зимова куртка Outerwear Boy Kids', 1, 1, 2, 3499.00, 1, 2, '4067981263318', './img/popular_product/3.png', 0, 1, 1, 1),
 (4, 'Футболка бавовняна жіноча 3 S Baby Tee', 1, 1, 1, 1000.00, 1, 2, '4066757286810', './img/popular_product/4.png', 0, 1, 1, 1),
-(5, 'Спортивний костюм чоловічий Champion 218680', 2, 1, 2, 3099.00, 1, 2, '8054112953114', './img/popular_product/5.png', 0, 1, 1, 1),
-(6, 'Худі на флісі для хлопчика Nike', 1, 2, 2, 1999.00, 1, 2, '197598790403', './img/popular_product/6.png', 0, 1, 1, 1);
+(5, 'Спортивний костюм чоловічий Champion', 2, 1, 2, 1999.00, 1, 2, '8054112953114', './img/popular_product/5.png', 0, 1, 1, 1),
+(6, 'Худі на флісі для хлопчика Nike', 1, 2, 2, 1449.00, 1, 2, '197598790403', './img/popular_product/6.png', 0, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -563,7 +594,7 @@ ALTER TABLE `categorysub`
 -- AUTO_INCREMENT для таблиці `categorysubsub`
 --
 ALTER TABLE `categorysubsub`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT для таблиці `colors`
@@ -575,7 +606,7 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT для таблиці `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблиці `countriesproduct`
