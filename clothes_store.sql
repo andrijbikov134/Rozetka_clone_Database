@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Січ 27 2025 р., 17:45
+-- Час створення: Січ 28 2025 р., 20:47
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -65,7 +65,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `title`) VALUES
 (1, 'Women'),
 (2, 'Men'),
-(3, 'Сhildren');
+(3, 'Children');
 
 -- --------------------------------------------------------
 
@@ -112,9 +112,9 @@ INSERT INTO `categorysubsub` (`id`, `title`, `pictures_path`, `categorysub_id`, 
 (4, 'pants_women', '../img/women/clothes/pants_women.png', 1, 'Штани'),
 (5, 'pants_men', '../img/men/clothes/pants_men.png', 1, 'Штани'),
 (6, 'pants_children', '../img/children/clothes/pants_children.png', 1, 'Штани'),
-(7, 'down_jackets_women', '../img/women/clothes/down_jackets_women.png', 1, 'Пуховики'),
-(8, 'down_jackets_men', '../img/men/clothes/down_jackets_men.png', 1, 'Пуховики'),
-(9, 'down_jackets_children', '../img/children/clothes/down_jackets_children.png', 1, 'Пуховики'),
+(7, 'downjackets_women', '../img/women/clothes/down_jackets_women.png', 1, 'Пуховики'),
+(8, 'downjackets_men', '../img/men/clothes/down_jackets_men.png', 1, 'Пуховики'),
+(9, 'downjackets_children', '../img/children/clothes/down_jackets_children.png', 1, 'Пуховики'),
 (10, 'jerseys_women', '../img/women/clothes/jerseys_women.png', 1, 'Майки'),
 (11, 'jerseys_men', '../img/men/clothes/jerseys_men.png', 1, 'Майки'),
 (12, 'jerseys_children', '../img/children/clothes/jerseys_children.png', 1, 'Майки'),
@@ -127,9 +127,9 @@ INSERT INTO `categorysubsub` (`id`, `title`, `pictures_path`, `categorysub_id`, 
 (19, 'tshirts_women', '../img/women/clothes/t_shirts_women.png', 1, 'Футболки'),
 (20, 'tshirts_men', '../img/men/clothes/t_shirts_men.png', 1, 'Футболки'),
 (21, 'tshirts_children', '../img/children/clothes/t_shirts_children.png', 1, 'Футболки'),
-(22, 'thermal_underwear_women', '../img/women/clothes/thermal_underwear_women.png', 1, 'Термобілизна'),
-(23, 'thermal_underwear_men', '../img/men/clothes/thermal_underwear_men.png', 1, 'Термобілизна'),
-(25, 'thermal_underwear_children', '../img/children/clothes/thermal_underwear_children.png', 1, 'Термобілизна'),
+(22, 'thermalunderwear_women', '../img/women/clothes/thermal_underwear_women.png', 1, 'Термобілизна'),
+(23, 'thermalunderwear_men', '../img/men/clothes/thermal_underwear_men.png', 1, 'Термобілизна'),
+(25, 'thermalunderwear_children', '../img/children/clothes/thermal_underwear_children.png', 1, 'Термобілизна'),
 (26, 'backpacks_women', '../img/women/accessories/backpacks_women.png\r\n', 2, 'Рюкзаки'),
 (27, 'backpacks_men', '../img/men/accessories/backpacks_men.png\r\n', 2, 'Рюкзаки'),
 (28, 'backpacks_children', '../img/children/accessories/backpacks_children.png\r\n', 2, 'Рюкзаки'),
@@ -145,9 +145,9 @@ INSERT INTO `categorysubsub` (`id`, `title`, `pictures_path`, `categorysub_id`, 
 (38, 'boots_women', '../img/women/shoes/boots_women.png', 3, 'Черевики'),
 (39, 'boots_men', '../img/men/shoes/boots_men.png', 3, 'Черевики'),
 (40, 'boots_children', '../img/children/shoes/boots_children.png', 3, 'Черевики'),
-(41, 'flip_flops_women', '../img/women/shoes/flip_flops_women.png', 3, 'Шльопки'),
-(42, 'flip_flops_men', '../img/men/shoes/flip_flops_men.png', 3, 'Шльопки'),
-(43, 'flip_flops_children', '../img/children/shoes/flip_flops_children.png', 3, 'Шльопки'),
+(41, 'flipflops_women', '../img/women/shoes/flip_flops_women.png', 3, 'Шльопки'),
+(42, 'flipflops_men', '../img/men/shoes/flip_flops_men.png', 3, 'Шльопки'),
+(43, 'flipflops_children', '../img/children/shoes/flip_flops_children.png', 3, 'Шльопки'),
 (44, 'kedy_women', '../img/women/shoes/kedy_women.png', 3, 'Кеди'),
 (45, 'kedy_men', '../img/men/shoes/kedy_men.png', 3, 'Кеди'),
 (46, 'kedy_children', '../img/children/shoes/kedy_children.png', 3, 'Кеди'),
@@ -317,12 +317,61 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `size_id`, `color_id`, `brand_id`, `price`, `material_id`, `country_product_id`, `part_number`, `pictures_path`, `comment_id`, `category_id`, `category_sub_id`, `category_sub_sub_id`) VALUES
-(1, 'Футболка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', './img/popular_product/1.png', 0, 1, 1, 1),
-(2, 'Пуховик чоловічий Protective Down Parka', 3, 2, 2, 3999.00, 1, 1, '4067981263318', './img/popular_product/2.png', 0, 1, 1, 1),
-(3, 'Зимова куртка Outerwear Boy Kids', 1, 1, 2, 3499.00, 1, 2, '4067981263318', './img/popular_product/3.png', 0, 1, 1, 1),
-(4, 'Футболка бавовняна жіноча 3 S Baby Tee', 1, 1, 1, 1000.00, 1, 2, '4066757286810', './img/popular_product/4.png', 0, 1, 1, 1),
-(5, 'Спортивний костюм чоловічий Champion', 2, 1, 2, 1999.00, 1, 2, '8054112953114', './img/popular_product/5.png', 0, 1, 1, 1),
-(6, 'Худі на флісі для хлопчика Nike', 1, 2, 2, 1449.00, 1, 2, '197598790403', './img/popular_product/6.png', 0, 1, 1, 1);
+(1, 'Футболка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
+(2, 'Пуховик чоловічий Protective Down Parka', 3, 2, 2, 3999.00, 1, 1, '4067981263318', '/img/women/clothes/down_jackets/1.png', 0, 2, 1, 8),
+(3, 'Зимова куртка Outerwear Boy Kids', 1, 1, 2, 3499.00, 1, 2, '4067981263318', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(4, 'Футболка бавовняна жіноча 3 S Baby Tee', 1, 1, 1, 1000.00, 1, 2, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
+(6, 'Толстовка на флісі для хлопчика Nike', 1, 2, 2, 1449.00, 1, 2, '197598790403', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
+(7, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(8, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(9, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(10, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(11, 'Штани жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/pants/1.png', 0, 1, 1, 4),
+(12, 'Пуховик жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/down_jackets/1.png', 0, 1, 1, 7),
+(13, 'Майка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 10),
+(14, 'Рубашка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/shirts/1.png', 0, 1, 1, 13),
+(15, 'Толстовка жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 16),
+(16, 'Термобілизна бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/thermal_underwear/1.png', 0, 1, 1, 22),
+(17, 'Куртка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/jackets/1.png', 0, 2, 1, 2),
+(18, 'Штани чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/pants/1.png', 0, 2, 1, 5),
+(19, 'Майка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/jerseys/1.png', 0, 2, 1, 11),
+(20, 'Рубашка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/shirts/1.png', 0, 2, 1, 14),
+(21, 'Толстовка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/sweatshirts/1.png', 0, 2, 1, 17),
+(22, 'Футболка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/t_shirts/1.png', 0, 2, 1, 20),
+(23, 'Термобілизна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/thermal_underwear/1.png', 0, 2, 1, 23),
+(24, 'Куртка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/jackets/1.png', 0, 3, 1, 3),
+(25, 'Штани дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/pants/1.png', 0, 3, 1, 6),
+(26, 'Пуховик дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/down_jackets/1.png', 0, 3, 1, 9),
+(27, 'Майка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/jerseys/1.png', 0, 3, 1, 12),
+(28, 'Рубашка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/shirts/1.png', 0, 3, 1, 15),
+(29, 'Толстовка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
+(30, 'Футболка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/t_shirts/1.png', 0, 3, 1, 21),
+(31, 'Термобілизна дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/thermal_underwear/1.png', 0, 3, 1, 25),
+(32, 'Черевики жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 3, 38),
+(33, 'Шльопки жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/flip_flops/1.png', 0, 1, 3, 41),
+(34, 'Кеди жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/kedy/1.png', 0, 1, 3, 44),
+(35, 'Кросівки жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/sneakers/1.png', 0, 1, 3, 47),
+(36, 'Черевики чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/boots/1.png', 0, 2, 3, 39),
+(37, 'Шльопки чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/flip_flops/1.png', 0, 2, 3, 42),
+(38, 'Кеди чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/kedy/1.png', 0, 2, 3, 45),
+(39, 'Кросівки чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/kedy/1.png', 0, 2, 3, 50),
+(40, 'Черевики дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/boots/1.png', 0, 3, 3, 40),
+(41, 'Шльопки дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/flip_flops/1.png', 0, 3, 3, 43),
+(42, 'Кеди дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/kedy/1.png', 0, 3, 3, 46),
+(43, 'Кросівки дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/sneakers/1.png', 0, 3, 3, 51),
+(44, 'Рюкзак жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/backpacks/1.png', 0, 1, 2, 26),
+(45, 'Рукавички жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/gloves/1.png', 0, 1, 2, 29),
+(46, 'Головний убір жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/headwear/1.png', 0, 1, 2, 32),
+(47, 'Шарф жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/scarves/1.png', 0, 1, 2, 35),
+(48, 'Рюкзак чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 26),
+(49, 'Рюкзак чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 27),
+(50, 'Рукавички чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/gloves/1.png', 0, 2, 2, 30),
+(51, 'Кепка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/headwear/1.png', 0, 2, 2, 33),
+(52, 'Шарф чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/scarves/1.png', 0, 2, 2, 36),
+(53, 'Рюкзак дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/backpacks/1.png', 0, 3, 2, 28),
+(54, 'Рукавички дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/gloves/1.png', 0, 3, 2, 31),
+(55, 'Шапка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/headwear/1.png', 0, 3, 2, 34),
+(56, 'Шарф дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/scarves/1.png', 0, 3, 2, 37);
 
 -- --------------------------------------------------------
 
@@ -642,7 +691,7 @@ ALTER TABLE `paymenttype`
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT для таблиці `recipients`
