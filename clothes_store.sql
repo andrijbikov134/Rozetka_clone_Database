@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Січ 28 2025 р., 20:47
+-- Час створення: Лют 06 2025 р., 14:45
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -190,31 +190,6 @@ INSERT INTO `colors` (`id`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `comments`
---
-
-CREATE TABLE `comments` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) UNSIGNED NOT NULL,
-  `comment` varchar(200) NOT NULL,
-  `advantages` varchar(200) NOT NULL,
-  `disadvantages` varchar(200) NOT NULL,
-  `star_quantity` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='comments';
-
---
--- Дамп даних таблиці `comments`
---
-
-INSERT INTO `comments` (`id`, `product_id`, `comment`, `advantages`, `disadvantages`, `star_quantity`, `user_id`) VALUES
-(8, 1, 'ббббб', '000', 'бюбю', 5, 1),
-(9, 1, 'іва', 'іваі', 'віаів', 0, 1),
-(10, 1, '1', '1', '1', 5, 1);
-
--- --------------------------------------------------------
-
---
 -- Структура таблиці `countriesproduct`
 --
 
@@ -243,6 +218,15 @@ CREATE TABLE `deliverytype` (
   `title` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='deliverytype';
 
+--
+-- Дамп даних таблиці `deliverytype`
+--
+
+INSERT INTO `deliverytype` (`id`, `title`) VALUES
+(1, 'self_pickup'),
+(2, 'ukr_poshta'),
+(3, 'nova_poshta');
+
 -- --------------------------------------------------------
 
 --
@@ -261,7 +245,22 @@ CREATE TABLE `materials` (
 INSERT INTO `materials` (`id`, `title`) VALUES
 (1, 'Бавовна'),
 (2, 'Вовна'),
-(3, 'Поліестер');
+(3, 'Поліестер'),
+(4, 'Штучна шкіра');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `orderidproductid`
+--
+
+CREATE TABLE `orderidproductid` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `order_id` int(11) UNSIGNED NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` float(11,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='orderidproductid';
 
 -- --------------------------------------------------------
 
@@ -271,7 +270,7 @@ INSERT INTO `materials` (`id`, `title`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(11) UNSIGNED NOT NULL,
-  `client_id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
   `date_order` datetime NOT NULL,
   `delivery_type_id` int(11) UNSIGNED NOT NULL,
   `payment_type_id` int(11) UNSIGNED NOT NULL,
@@ -289,6 +288,103 @@ CREATE TABLE `paymenttype` (
   `title` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='paymenttype';
 
+--
+-- Дамп даних таблиці `paymenttype`
+--
+
+INSERT INTO `paymenttype` (`id`, `title`) VALUES
+(1, 'cash'),
+(2, 'online');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `productidsizeid`
+--
+
+CREATE TABLE `productidsizeid` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `productid` int(11) UNSIGNED NOT NULL,
+  `sizeid` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='productidsizeid';
+
+--
+-- Дамп даних таблиці `productidsizeid`
+--
+
+INSERT INTO `productidsizeid` (`id`, `productid`, `sizeid`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 2, 1),
+(6, 3, 1),
+(7, 4, 1),
+(8, 6, 1),
+(9, 7, 1),
+(10, 8, 1),
+(11, 9, 1),
+(12, 10, 1),
+(13, 11, 1),
+(14, 12, 4),
+(15, 13, 2),
+(16, 14, 1),
+(17, 15, 1),
+(18, 16, 1),
+(19, 17, 3),
+(20, 18, 1),
+(21, 19, 1),
+(22, 20, 1),
+(23, 21, 1),
+(24, 22, 1),
+(25, 23, 1),
+(26, 24, 1),
+(27, 25, 1),
+(28, 26, 1),
+(29, 27, 1),
+(30, 28, 1),
+(31, 29, 1),
+(32, 30, 1),
+(33, 31, 1),
+(34, 32, 1),
+(35, 33, 1),
+(36, 34, 1),
+(37, 35, 1),
+(38, 36, 1),
+(39, 37, 1),
+(40, 38, 1),
+(41, 39, 1),
+(42, 40, 1),
+(43, 41, 1),
+(44, 42, 1),
+(45, 43, 1),
+(46, 44, 14),
+(47, 45, 1),
+(48, 46, 14),
+(49, 47, 14),
+(50, 48, 14),
+(51, 49, 14),
+(52, 50, 1),
+(53, 51, 1),
+(54, 52, 14),
+(55, 53, 14),
+(56, 53, 14),
+(57, 54, 1),
+(58, 51, 14),
+(59, 55, 14),
+(60, 56, 14),
+(61, 57, 1),
+(62, 58, 14),
+(63, 59, 1),
+(64, 60, 1),
+(65, 61, 1),
+(66, 62, 1),
+(67, 63, 1),
+(68, 64, 1),
+(69, 65, 1),
+(70, 66, 1),
+(71, 67, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -298,7 +394,6 @@ CREATE TABLE `paymenttype` (
 CREATE TABLE `products` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(200) NOT NULL,
-  `size_id` int(11) UNSIGNED NOT NULL,
   `color_id` int(11) UNSIGNED NOT NULL,
   `brand_id` int(11) UNSIGNED NOT NULL,
   `price` float(10,2) NOT NULL,
@@ -316,62 +411,73 @@ CREATE TABLE `products` (
 -- Дамп даних таблиці `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `size_id`, `color_id`, `brand_id`, `price`, `material_id`, `country_product_id`, `part_number`, `pictures_path`, `comment_id`, `category_id`, `category_sub_id`, `category_sub_sub_id`) VALUES
-(1, 'Футболка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
-(2, 'Пуховик чоловічий Protective Down Parka', 3, 2, 2, 3999.00, 1, 1, '4067981263318', '/img/women/clothes/down_jackets/1.png', 0, 2, 1, 8),
-(3, 'Зимова куртка Outerwear Boy Kids', 1, 1, 2, 3499.00, 1, 2, '4067981263318', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
-(4, 'Футболка бавовняна жіноча 3 S Baby Tee', 1, 1, 1, 1000.00, 1, 2, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
-(6, 'Толстовка на флісі для хлопчика Nike', 1, 2, 2, 1449.00, 1, 2, '197598790403', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
-(7, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
-(8, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
-(9, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
-(10, 'Куртка жіноча Puma', 1, 2, 3, 999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
-(11, 'Штани жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/pants/1.png', 0, 1, 1, 4),
-(12, 'Пуховик жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/down_jackets/1.png', 0, 1, 1, 7),
-(13, 'Майка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 10),
-(14, 'Рубашка бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/shirts/1.png', 0, 1, 1, 13),
-(15, 'Толстовка жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 16),
-(16, 'Термобілизна бавовняна жіноча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/thermal_underwear/1.png', 0, 1, 1, 22),
-(17, 'Куртка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/jackets/1.png', 0, 2, 1, 2),
-(18, 'Штани чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/pants/1.png', 0, 2, 1, 5),
-(19, 'Майка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/jerseys/1.png', 0, 2, 1, 11),
-(20, 'Рубашка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/shirts/1.png', 0, 2, 1, 14),
-(21, 'Толстовка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/sweatshirts/1.png', 0, 2, 1, 17),
-(22, 'Футболка бавовняна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/t_shirts/1.png', 0, 2, 1, 20),
-(23, 'Термобілизна чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/thermal_underwear/1.png', 0, 2, 1, 23),
-(24, 'Куртка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/jackets/1.png', 0, 3, 1, 3),
-(25, 'Штани дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/pants/1.png', 0, 3, 1, 6),
-(26, 'Пуховик дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/down_jackets/1.png', 0, 3, 1, 9),
-(27, 'Майка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/jerseys/1.png', 0, 3, 1, 12),
-(28, 'Рубашка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/shirts/1.png', 0, 3, 1, 15),
-(29, 'Толстовка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
-(30, 'Футболка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/t_shirts/1.png', 0, 3, 1, 21),
-(31, 'Термобілизна дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/thermal_underwear/1.png', 0, 3, 1, 25),
-(32, 'Черевики жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 3, 38),
-(33, 'Шльопки жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/flip_flops/1.png', 0, 1, 3, 41),
-(34, 'Кеди жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/kedy/1.png', 0, 1, 3, 44),
-(35, 'Кросівки жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/sneakers/1.png', 0, 1, 3, 47),
-(36, 'Черевики чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/clothes/boots/1.png', 0, 2, 3, 39),
-(37, 'Шльопки чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/flip_flops/1.png', 0, 2, 3, 42),
-(38, 'Кеди чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/kedy/1.png', 0, 2, 3, 45),
-(39, 'Кросівки чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/kedy/1.png', 0, 2, 3, 50),
-(40, 'Черевики дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/boots/1.png', 0, 3, 3, 40),
-(41, 'Шльопки дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/flip_flops/1.png', 0, 3, 3, 43),
-(42, 'Кеди дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/kedy/1.png', 0, 3, 3, 46),
-(43, 'Кросівки дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/sneakers/1.png', 0, 3, 3, 51),
-(44, 'Рюкзак жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/backpacks/1.png', 0, 1, 2, 26),
-(45, 'Рукавички жіночі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/gloves/1.png', 0, 1, 2, 29),
-(46, 'Головний убір жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/headwear/1.png', 0, 1, 2, 32),
-(47, 'Шарф жіночий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/scarves/1.png', 0, 1, 2, 35),
-(48, 'Рюкзак чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 26),
-(49, 'Рюкзак чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 27),
-(50, 'Рукавички чоловічі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/gloves/1.png', 0, 2, 2, 30),
-(51, 'Кепка чоловіча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/headwear/1.png', 0, 2, 2, 33),
-(52, 'Шарф чоловічий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/scarves/1.png', 0, 2, 2, 36),
-(53, 'Рюкзак дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/backpacks/1.png', 0, 3, 2, 28),
-(54, 'Рукавички дитячі Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/gloves/1.png', 0, 3, 2, 31),
-(55, 'Шапка дитяча Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/headwear/1.png', 0, 3, 2, 34),
-(56, 'Шарф дитячий Puma', 1, 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/scarves/1.png', 0, 3, 2, 37);
+INSERT INTO `products` (`id`, `title`, `color_id`, `brand_id`, `price`, `material_id`, `country_product_id`, `part_number`, `pictures_path`, `comment_id`, `category_id`, `category_sub_id`, `category_sub_sub_id`) VALUES
+(1, 'Футболка бавовняна жіноча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
+(2, 'Пуховик чоловічий Protective Down Parka', 2, 2, 3999.00, 1, 1, '4067981263318', '/img/women/clothes/down_jackets/1.png', 0, 2, 1, 8),
+(3, 'Зимова куртка Outerwear Boy Kids', 1, 2, 3499.00, 1, 2, '4067981263318', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(4, 'Футболка бавовняна жіноча 3 S Baby Tee', 1, 1, 1000.00, 1, 2, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 19),
+(6, 'Толстовка на флісі для хлопчика Nike', 2, 2, 1449.00, 1, 2, '197598790403', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
+(7, 'Куртка жіноча Puma', 2, 3, 3999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(8, 'Куртка жіноча Puma', 2, 3, 2499.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(9, 'Куртка жіноча Puma', 2, 3, 1999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(10, 'Куртка жіноча Puma', 2, 3, 4999.00, 1, 1, 'asd-112322', '/img/women/clothes/jackets/1.png', 0, 1, 1, 1),
+(11, 'Штани жіночі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/pants/1.png', 0, 1, 1, 4),
+(12, 'Пуховик жіночий Puma', 2, 3, 3999.00, 1, 1, '4066757286810', '/img/women/clothes/down_jackets/1.png', 0, 1, 1, 7),
+(13, 'Майка бавовняна жіноча Puma', 2, 3, 899.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 10),
+(14, 'Рубашка бавовняна жіноча Puma', 2, 3, 1199.00, 1, 1, '4066757286810', '/img/women/clothes/shirts/1.png', 0, 1, 1, 13),
+(15, 'Толстовка жіноча Puma', 2, 3, 1199.00, 1, 1, '4066757286810', '/img/women/clothes/t_shirts/1.png', 0, 1, 1, 16),
+(16, 'Термобілизна бавовняна жіноча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/clothes/thermal_underwear/1.png', 0, 1, 1, 22),
+(17, 'Куртка чоловіча Puma', 2, 3, 2459.00, 1, 1, '4066757286810', '/img/men/clothes/jackets/1.png', 0, 2, 1, 2),
+(18, 'Штани чоловічі Puma', 2, 3, 899.00, 1, 1, '4066757286810', '/img/men/clothes/pants/1.png', 0, 2, 1, 5),
+(19, 'Майка бавовняна чоловіча Puma', 2, 3, 599.00, 1, 1, '4066757286810', '/img/men/clothes/jerseys/1.png', 0, 2, 1, 11),
+(20, 'Рубашка бавовняна чоловіча Puma', 2, 3, 899.00, 1, 1, '4066757286810', '/img/men/clothes/shirts/1.png', 0, 2, 1, 14),
+(21, 'Толстовка чоловіча Puma', 2, 3, 1299.00, 1, 1, '4066757286810', '/img/men/clothes/sweatshirts/1.png', 0, 2, 1, 17),
+(22, 'Футболка бавовняна чоловіча Puma', 2, 3, 789.00, 1, 1, '4066757286810', '/img/men/clothes/t_shirts/1.png', 0, 2, 1, 20),
+(23, 'Термобілизна чоловіча Puma', 2, 3, 998.00, 1, 1, '4066757286810', '/img/men/clothes/thermal_underwear/1.png', 0, 2, 1, 23),
+(24, 'Куртка дитяча Puma', 2, 3, 1389.00, 1, 1, '4066757286810', '/img/children/clothes/jackets/1.png', 0, 3, 1, 3),
+(25, 'Штани дитячі Puma', 2, 3, 499.00, 1, 1, '4066757286810', '/img/children/clothes/pants/1.png', 0, 3, 1, 6),
+(26, 'Пуховик дитячий Puma', 2, 3, 5999.00, 1, 1, '4066757286810', '/img/children/clothes/down_jackets/1.png', 0, 3, 1, 9),
+(27, 'Майка дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/jerseys/1.png', 0, 3, 1, 12),
+(28, 'Рубашка дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/shirts/1.png', 0, 3, 1, 15),
+(29, 'Толстовка дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/sweatshirts/1.png', 0, 3, 1, 18),
+(30, 'Футболка дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/t_shirts/1.png', 0, 3, 1, 21),
+(31, 'Термобілизна дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/clothes/thermal_underwear/1.png', 0, 3, 1, 25),
+(32, 'Черевики жіночі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/boots/1.png', 0, 1, 3, 38),
+(33, 'Шльопки жіночі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/flip_flops/1.png', 0, 1, 3, 41),
+(34, 'Кеди жіночі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/shoes/kedy/1.png', 0, 1, 3, 44),
+(35, 'Кросівки жіночі Puma', 2, 3, 999.00, 4, 1, '4066757286810', '/img/women/shoes/sneakers/1.png', 0, 1, 3, 47),
+(36, 'Черевики чоловічі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/boots/1.png', 0, 2, 3, 39),
+(37, 'Шльопки чоловічі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/flip_flops/1.png', 0, 2, 3, 42),
+(38, 'Кеди чоловічі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/shoes/kedy/1.png', 0, 2, 3, 45),
+(39, 'Кросівки чоловічі Puma', 2, 3, 999.00, 4, 1, '4066757286810', '/img/men/shoes/sneakers/1.png', 0, 2, 3, 50),
+(40, 'Черевики дитячі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/boots/1.png', 0, 3, 3, 40),
+(41, 'Шльопки дитячі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/flip_flops/1.png', 0, 3, 3, 43),
+(42, 'Кеди дитячі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/kedy/1.png', 0, 3, 3, 46),
+(43, 'Кросівки дитячі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/shoes/sneakers/1.png', 0, 3, 3, 51),
+(44, 'Рюкзак жіночий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/backpacks/1.png', 0, 1, 2, 26),
+(45, 'Рукавички жіночі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/gloves/1.png', 0, 1, 2, 29),
+(46, 'Головний убір жіночий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/headwear/1.png', 0, 1, 2, 32),
+(47, 'Шарф жіночий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/women/accessories/scarves/1.png', 0, 1, 2, 35),
+(48, 'Рюкзак чоловічий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 26),
+(49, 'Рюкзак чоловічий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/backpacks/1.png', 0, 2, 2, 27),
+(50, 'Рукавички чоловічі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/gloves/1.png', 0, 2, 2, 30),
+(51, 'Кепка чоловіча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/headwear/1.png', 0, 2, 2, 33),
+(52, 'Шарф чоловічий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/men/accessories/scarves/1.png', 0, 2, 2, 36),
+(53, 'Рюкзак дитячий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/backpacks/1.png', 0, 3, 2, 28),
+(54, 'Рукавички дитячі Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/gloves/1.png', 0, 3, 2, 31),
+(55, 'Шапка дитяча Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/headwear/1.png', 0, 3, 2, 34),
+(56, 'Шарф дитячий Puma', 2, 3, 999.00, 1, 1, '4066757286810', '/img/children/accessories/scarves/1.png', 0, 3, 2, 37),
+(57, 'Рукавички чоловічі Nike ACG Dri-FIT', 2, 8, 999.00, 1, 1, '4066757286810', '/img/men/accessories/gloves/Nike_ACG_Dri_FIT.png', 0, 2, 2, 30),
+(58, 'Кепка чоловіча Nike DriFIT Club', 6, 8, 499.00, 1, 1, '4066757286810', '/img/men/accessories/headwear/Nike_DriFIT_Club.png', 0, 2, 2, 33),
+(59, 'Куртка чоловіча Nike ACG Rope', 3, 8, 999.00, 3, 1, '4066757286810', '/img/men/clothes/jackets/Nike_ACG_Rope.png', 0, 2, 1, 2),
+(60, 'Толстовка чоловіча Nike ACG Canwell Glacier', 2, 8, 1999.00, 1, 1, '4066757286810', '/img/men/clothes/sweatshirts/Nike_ACG_Canwell_Glacier.png', 0, 2, 1, 17),
+(61, 'Футболка бавовняна чоловіча Puma', 6, 8, 999.00, 1, 1, '4066757286810', '/img/men/clothes/t_shirts/Nike_ACG.png', 0, 2, 1, 20),
+(62, 'Термобілизна чоловіча Nike ACG White Rapids', 5, 8, 999.00, 1, 1, '4066757286810', '/img/men/clothes/thermal_underwear/Nike_ACG_White_Rapids.png', 0, 2, 1, 23),
+(63, 'Черевики чоловічі Nike Air Max', 6, 8, 999.00, 4, 1, '4066757286810', '/img/men/shoes/boots/Nike_Air_Max.png', 0, 2, 3, 39),
+(64, 'Черевики чоловічі Nike Air Max', 3, 8, 999.00, 4, 1, '4066757286810', '/img/men/shoes/boots/Nike_Air_Max2.png', 0, 2, 3, 39),
+(65, 'Кеди чоловічі Nike ACF Watercat', 4, 8, 999.00, 4, 1, '4066757286810', '/img/men/shoes/kedy/Nike_ACF_Watercat.png', 0, 2, 3, 45),
+(66, 'Кросівки чоловічі Nike ACG Mountain', 3, 8, 999.00, 4, 1, '4066757286810', '/img/men/shoes/sneakers/Nike_ACG_Mountain.png', 0, 2, 3, 50),
+(67, 'Кросівки чоловічі Nike React SFB Carbon', 3, 8, 2999.00, 4, 1, '4066757286810', '/img/men/shoes/sneakers/Nike_React_SFB_Carbon.png', 0, 2, 3, 50);
 
 -- --------------------------------------------------------
 
@@ -383,7 +489,8 @@ CREATE TABLE `recipients` (
   `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(200) NOT NULL,
   `last_name` varchar(200) NOT NULL,
-  `phone` varchar(200) NOT NULL
+  `phone` varchar(200) NOT NULL,
+  `patronymic` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='recipients';
 
 -- --------------------------------------------------------
@@ -394,11 +501,21 @@ CREATE TABLE `recipients` (
 
 CREATE TABLE `reviews` (
   `id` int(11) UNSIGNED NOT NULL,
-  `description` varchar(200) NOT NULL,
+  `comment` varchar(200) NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
   `product_id` int(11) UNSIGNED NOT NULL,
-  `grade` int(11) UNSIGNED NOT NULL
+  `grade` int(11) UNSIGNED NOT NULL,
+  `advantages` varchar(200) NOT NULL,
+  `disadvantages` varchar(200) NOT NULL,
+  `datereview` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='reviews';
+
+--
+-- Дамп даних таблиці `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `comment`, `user_id`, `product_id`, `grade`, `advantages`, `disadvantages`, `datereview`) VALUES
+(9, 'It\'s good.', 1, 1, 5, 'It\'s good.', 'Don\'t have.', '2025-02-02');
 
 -- --------------------------------------------------------
 
@@ -417,8 +534,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `title`) VALUES
 (1, 'Administrator'),
-(2, 'Client'),
-(3, 'Seller');
+(2, 'Client');
 
 -- --------------------------------------------------------
 
@@ -448,7 +564,8 @@ INSERT INTO `sizes` (`id`, `title`) VALUES
 (10, '62'),
 (11, '64'),
 (12, '66'),
-(13, '68');
+(13, '68'),
+(14, 'б/р');
 
 -- --------------------------------------------------------
 
@@ -472,8 +589,8 @@ CREATE TABLE `tablepartorders` (
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) NOT NULL,
-  `phone` varchar(200) NOT NULL,
+  `last_name` varchar(200) DEFAULT NULL,
+  `phone` varchar(200) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `role_id` int(11) UNSIGNED NOT NULL
@@ -484,7 +601,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`) VALUES
-(1, 'Client 1', 'Client 1', '+41-025-234-32-23', 'asdfsa@sda.ch', '1', 2);
+(1, 'Retail customer', '', '+41-025-234-32-23', 'asdfsa@sda.ch', '1', 2),
+(5, 'Ivan', NULL, NULL, 'ivan@gmail.com', '$2y$10$.wT1zBQ.Y0dNJhBej4t/QuL6I5uu.g0E0oZWh9fekSV7FBnGVA5me', 2);
 
 --
 -- Індекси збережених таблиць
@@ -522,13 +640,6 @@ ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Індекси таблиці `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Індекси таблиці `countriesproduct`
 --
 ALTER TABLE `countriesproduct`
@@ -547,11 +658,17 @@ ALTER TABLE `materials`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `orderidproductid`
+--
+ALTER TABLE `orderidproductid`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Індекси таблиці `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `client_id` (`client_id`),
+  ADD KEY `client_id` (`user_id`),
   ADD KEY `delivery_type_id` (`delivery_type_id`),
   ADD KEY `paymment_type_id` (`payment_type_id`),
   ADD KEY `recipient_id` (`recipient_id`);
@@ -563,11 +680,18 @@ ALTER TABLE `paymenttype`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `productidsizeid`
+--
+ALTER TABLE `productidsizeid`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productid` (`productid`),
+  ADD KEY `sizeid` (`sizeid`);
+
+--
 -- Індекси таблиці `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `size_id` (`size_id`),
   ADD KEY `color_id` (`color_id`),
   ADD KEY `brand_id` (`brand_id`),
   ADD KEY `material_id` (`material_id`),
@@ -652,12 +776,6 @@ ALTER TABLE `colors`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT для таблиці `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT для таблиці `countriesproduct`
 --
 ALTER TABLE `countriesproduct`
@@ -667,13 +785,19 @@ ALTER TABLE `countriesproduct`
 -- AUTO_INCREMENT для таблиці `deliverytype`
 --
 ALTER TABLE `deliverytype`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблиці `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблиці `orderidproductid`
+--
+ALTER TABLE `orderidproductid`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
@@ -685,13 +809,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблиці `paymenttype`
 --
 ALTER TABLE `paymenttype`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблиці `productidsizeid`
+--
+ALTER TABLE `productidsizeid`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT для таблиці `recipients`
@@ -703,7 +833,7 @@ ALTER TABLE `recipients`
 -- AUTO_INCREMENT для таблиці `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблиці `roles`
@@ -715,7 +845,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблиці `sizes`
 --
 ALTER TABLE `sizes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблиці `tablepartorders`
@@ -727,7 +857,7 @@ ALTER TABLE `tablepartorders`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
@@ -740,25 +870,25 @@ ALTER TABLE `categorysubsub`
   ADD CONSTRAINT `categorysubsub_ibfk_1` FOREIGN KEY (`categorysub_id`) REFERENCES `categorysub` (`id`);
 
 --
--- Обмеження зовнішнього ключа таблиці `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-
---
 -- Обмеження зовнішнього ключа таблиці `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`delivery_type_id`) REFERENCES `deliverytype` (`id`),
   ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`payment_type_id`) REFERENCES `paymenttype` (`id`),
   ADD CONSTRAINT `orders_ibfk_4` FOREIGN KEY (`recipient_id`) REFERENCES `recipients` (`id`);
 
 --
+-- Обмеження зовнішнього ключа таблиці `productidsizeid`
+--
+ALTER TABLE `productidsizeid`
+  ADD CONSTRAINT `productidsizeid_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `productidsizeid_ibfk_2` FOREIGN KEY (`sizeid`) REFERENCES `sizes` (`id`);
+
+--
 -- Обмеження зовнішнього ключа таблиці `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`),
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`),
   ADD CONSTRAINT `products_ibfk_3` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
   ADD CONSTRAINT `products_ibfk_4` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`),
