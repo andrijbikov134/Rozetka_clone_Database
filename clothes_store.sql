@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Лют 06 2025 р., 14:45
+-- Час створення: Лют 12 2025 р., 12:25
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -75,17 +75,18 @@ INSERT INTO `category` (`id`, `title`) VALUES
 
 CREATE TABLE `categorysub` (
   `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(200) NOT NULL
+  `title` varchar(200) NOT NULL,
+  `title_ua` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='categorysub';
 
 --
 -- Дамп даних таблиці `categorysub`
 --
 
-INSERT INTO `categorysub` (`id`, `title`) VALUES
-(1, 'clothes'),
-(2, 'accessories'),
-(3, 'shoes');
+INSERT INTO `categorysub` (`id`, `title`, `title_ua`) VALUES
+(1, 'clothes', 'Одяг'),
+(2, 'accessories', 'Аксесуари'),
+(3, 'shoes', 'Взуття');
 
 -- --------------------------------------------------------
 
@@ -274,8 +275,17 @@ CREATE TABLE `orders` (
   `date_order` datetime NOT NULL,
   `delivery_type_id` int(11) UNSIGNED NOT NULL,
   `payment_type_id` int(11) UNSIGNED NOT NULL,
-  `recipient_id` int(11) UNSIGNED NOT NULL
+  `recipient_id` int(11) UNSIGNED NOT NULL,
+  `delivery_index` varchar(200) DEFAULT NULL,
+  `delivery_full_address` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='orders';
+
+--
+-- Дамп даних таблиці `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `date_order`, `delivery_type_id`, `payment_type_id`, `recipient_id`, `delivery_index`, `delivery_full_address`) VALUES
+(1, 5, '2025-02-09 14:42:59', 1, 1, 1, '1', 'м.Київ, вул. Академіка Ромоданова, 1');
 
 -- --------------------------------------------------------
 
@@ -493,6 +503,13 @@ CREATE TABLE `recipients` (
   `patronymic` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='recipients';
 
+--
+-- Дамп даних таблиці `recipients`
+--
+
+INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`) VALUES
+(1, 'Ivan', '', '+380961111111', '');
+
 -- --------------------------------------------------------
 
 --
@@ -602,7 +619,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`) VALUES
 (1, 'Retail customer', '', '+41-025-234-32-23', 'asdfsa@sda.ch', '1', 2),
-(5, 'Ivan', NULL, NULL, 'ivan@gmail.com', '$2y$10$.wT1zBQ.Y0dNJhBej4t/QuL6I5uu.g0E0oZWh9fekSV7FBnGVA5me', 2);
+(5, 'Ivan', 'Shevchenko', '+380961111111', 'ivan@gmail.com', '$2y$10$.wT1zBQ.Y0dNJhBej4t/QuL6I5uu.g0E0oZWh9fekSV7FBnGVA5me', 2);
 
 --
 -- Індекси збережених таблиць
@@ -749,7 +766,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблиці `category`
@@ -803,7 +820,7 @@ ALTER TABLE `orderidproductid`
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблиці `paymenttype`
@@ -827,13 +844,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблиці `recipients`
 --
 ALTER TABLE `recipients`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблиці `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблиці `roles`
@@ -851,13 +868,13 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблиці `tablepartorders`
 --
 ALTER TABLE `tablepartorders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
