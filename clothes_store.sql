@@ -888,8 +888,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`, `patronymic`, `gender`, `birthday`, `city`) VALUES
 (1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$Mp0F8ZYjt5F8xuQYTHGdIeoq.MZE4tew42SMCI8NlhS8w5rS8/SYq', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380961111111', 'ivan@gmail.com', '$2y$10$yXj69y/wzf.sMYZgn1CEleT/YQJsUDRW6VxnUzR6UJR2E6znSlO4u', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
-(18, 'Іван2', NULL, NULL, 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, NULL, NULL, NULL, NULL),
-(20, 'Test', NULL, NULL, 'Test@test.com', '$2y$10$Mp0F8ZYjt5F8xuQYTHGdIeoq.MZE4tew42SMCI8NlhS8w5rS8/SYq', 2, '', 'male', '1970-01-01 16:28:09', '');
+(18, 'Іван2', NULL, NULL, 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, NULL, NULL, NULL, NULL);
 --
 -- Індекси збережених таблиць
 --
