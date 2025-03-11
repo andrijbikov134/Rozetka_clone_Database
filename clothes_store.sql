@@ -1268,7 +1268,6 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `passwor
 (1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$M1/syhEpBkhRrAW6iaUe0uZ3mMUGP7vu9cxnJnx.ghFcWLjn4djvO', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380961111111', 'ivan@gmail.com', '$2y$10$yXj69y/wzf.sMYZgn1CEleT/YQJsUDRW6VxnUzR6UJR2E6znSlO4u', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', NULL, NULL, 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, NULL, NULL, NULL, NULL);
-
 --
 -- Індекси збережених таблиць
 --
