@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 11 2025 р., 07:12
+-- Час створення: Бер 12 2025 р., 17:11
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -292,7 +292,10 @@ INSERT INTO `orderidproductid` (`id`, `order_id`, `product_id`, `quantity`, `pri
 (96, 121, 98, 1, 1799.00, 6),
 (97, 122, 4, 1, 1007.00, 1),
 (98, 123, 125, 1, 799.00, 6),
-(99, 124, 98, 1, 1799.00, 5);
+(99, 124, 98, 1, 1799.00, 5),
+(102, 127, 98, 1, 1799.00, 5),
+(103, 128, 98, 1, 1799.00, 5),
+(104, 129, 98, 1, 1799.00, 5);
 
 -- --------------------------------------------------------
 
@@ -317,16 +320,19 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `date_order`, `delivery_type_id`, `payment_type_id`, `recipient_id`, `delivery_index`, `delivery_full_address`, `status_order`) VALUES
-(116, NULL, '2025-02-28 11:03:23', 1, 2, 25, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'cancelled'),
-(117, 5, '2025-02-28 11:04:43', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
-(118, NULL, '2025-02-28 12:48:32', 1, 2, 26, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
-(119, NULL, '2025-02-28 12:49:41', 1, 2, 27, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
-(120, NULL, '2025-02-28 12:51:03', 1, 2, 28, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
-(121, 5, '2025-02-28 17:13:08', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
-(122, NULL, '2025-03-01 13:58:08', 1, 2, 29, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'sent'),
-(123, NULL, '2025-03-01 13:58:44', 1, 2, 30, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'sent'),
-(124, 5, '2025-03-06 17:49:24', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
-(125, 5, '2025-03-06 17:49:51', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', '');
+(116, NULL, '2024-06-28 11:03:23', 1, 2, 25, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'cancelled'),
+(117, 5, '2024-12-28 11:04:43', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
+(118, NULL, '2024-08-28 12:48:32', 1, 2, 26, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
+(119, NULL, '2024-09-28 12:49:41', 1, 2, 27, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
+(120, NULL, '2024-10-28 12:51:03', 1, 2, 28, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
+(121, 5, '2024-11-28 17:13:08', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'received'),
+(122, NULL, '2024-07-01 13:58:08', 1, 2, 29, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'sent'),
+(123, NULL, '2024-12-01 13:58:44', 1, 2, 30, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'sent'),
+(124, 5, '2024-12-06 17:49:24', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(125, 5, '2025-01-06 17:49:51', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(127, 5, '2025-03-12 17:54:50', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(128, 5, '2025-03-12 17:55:30', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(129, NULL, '2025-03-12 17:56:00', 1, 2, 32, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing');
 
 -- --------------------------------------------------------
 
@@ -1135,7 +1141,9 @@ INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`
 (27, 'Ліліан', '', '+38964563742', ''),
 (28, 'Роза', '', '+380967654325', ''),
 (29, 'Марія', '', '+38325435344', ''),
-(30, 'Марія', '', '+383243243534', '');
+(30, 'Марія', '', '+383243243534', ''),
+(31, 'Марія', '', '+380964567831', ''),
+(32, 'Марія', '', '+380876546373', '');
 
 -- --------------------------------------------------------
 
@@ -1265,9 +1273,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`, `patronymic`, `gender`, `birthday`, `city`) VALUES
-(1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$M1/syhEpBkhRrAW6iaUe0uZ3mMUGP7vu9cxnJnx.ghFcWLjn4djvO', 1, '', 'male', '1970-01-01 16:28:09', ''),
+(1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$upcE71qUdmD679PBsxtNP.N9c1cVjFv9gaDe7zabNOj3WjEPuusei', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380961111111', 'ivan@gmail.com', '$2y$10$yXj69y/wzf.sMYZgn1CEleT/YQJsUDRW6VxnUzR6UJR2E6znSlO4u', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', NULL, NULL, 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, NULL, NULL, NULL, NULL);
+
 --
 -- Індекси збережених таблиць
 --
@@ -1453,13 +1462,13 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблиці `orderidproductid`
 --
 ALTER TABLE `orderidproductid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT для таблиці `paymenttype`
@@ -1471,19 +1480,19 @@ ALTER TABLE `paymenttype`
 -- AUTO_INCREMENT для таблиці `productidsizeid`
 --
 ALTER TABLE `productidsizeid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=639;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=642;
 
 --
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT для таблиці `recipients`
 --
 ALTER TABLE `recipients`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT для таблиці `reviews`
