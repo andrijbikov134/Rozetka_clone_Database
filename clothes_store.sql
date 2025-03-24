@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 12 2025 р., 17:11
+-- Час створення: Бер 24 2025 р., 08:48
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -55,17 +55,18 @@ INSERT INTO `brands` (`id`, `title`) VALUES
 
 CREATE TABLE `category` (
   `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(200) NOT NULL
+  `title` varchar(200) NOT NULL,
+  `title_ua` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='category';
 
 --
 -- Дамп даних таблиці `category`
 --
 
-INSERT INTO `category` (`id`, `title`) VALUES
-(1, 'women'),
-(2, 'men'),
-(3, 'children');
+INSERT INTO `category` (`id`, `title`, `title_ua`) VALUES
+(1, 'women', 'Для жінок'),
+(2, 'men', 'Для чоловіків'),
+(3, 'children', 'Для дітей');
 
 -- --------------------------------------------------------
 
@@ -294,8 +295,13 @@ INSERT INTO `orderidproductid` (`id`, `order_id`, `product_id`, `quantity`, `pri
 (98, 123, 125, 1, 799.00, 6),
 (99, 124, 98, 1, 1799.00, 5),
 (102, 127, 98, 1, 1799.00, 5),
-(103, 128, 98, 1, 1799.00, 5),
-(104, 129, 98, 1, 1799.00, 5);
+(103, 128, 98, 3, 1799.00, 5),
+(104, 129, 98, 1, 1799.00, 5),
+(105, 130, 167, 1, 1199.00, 1),
+(106, 130, 143, 1, 1899.00, 1),
+(107, 130, 17, 1, 2459.00, 3),
+(108, 131, 171, 3, 799.00, 1),
+(109, 132, 98, 1, 1799.00, 5);
 
 -- --------------------------------------------------------
 
@@ -330,9 +336,12 @@ INSERT INTO `orders` (`id`, `user_id`, `date_order`, `delivery_type_id`, `paymen
 (123, NULL, '2024-12-01 13:58:44', 1, 2, 30, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'sent'),
 (124, 5, '2024-12-06 17:49:24', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
 (125, 5, '2025-01-06 17:49:51', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
-(127, 5, '2025-03-12 17:54:50', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
-(128, 5, '2025-03-12 17:55:30', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
-(129, NULL, '2025-03-12 17:56:00', 1, 2, 32, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing');
+(127, 5, '2025-01-03 17:54:50', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(128, 5, '2025-02-12 17:55:30', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(129, NULL, '2025-03-12 17:56:00', 1, 2, 32, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(130, 5, '2025-03-20 14:43:23', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(131, 5, '2025-03-20 15:42:28', 1, 1, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing'),
+(132, 5, '2025-03-20 16:42:13', 1, 2, 1, '', 'м. Київ, вул. Хрещатик, 300, ТРЦ \'Ocean\'', 'inprocessing');
 
 -- --------------------------------------------------------
 
@@ -904,7 +913,8 @@ INSERT INTO `productidsizeid` (`id`, `productid`, `sizeid`) VALUES
 (635, 207, 1),
 (636, 207, 5),
 (637, 207, 3),
-(638, 207, 2);
+(638, 207, 2),
+(656, 225, 11);
 
 -- --------------------------------------------------------
 
@@ -1094,7 +1104,8 @@ INSERT INTO `products` (`id`, `title`, `color_id`, `brand_id`, `price`, `materia
 (204, 'Штани дитячі Perfect', 6, 9, 777.00, 3, 2, 'nfv-1293879', 'img/children/clothes/pants/1741632685289.jpg', 3, 1, 6, NULL, 0, 0),
 (205, 'Штани дитячі Nike', 5, 8, 888.00, 1, 1, 'nfv-879991', 'img/children/clothes/pants/1741632719522.jpg', 3, 1, 6, NULL, 0, 0),
 (206, 'Штани дитячі Adidas', 14, 4, 556.00, 3, 2, 'nfv-124978', 'img/children/clothes/pants/1741632757605.jpg', 3, 1, 6, NULL, 0, 0),
-(207, 'Штани дитячі Soon', 3, 9, 699.00, 1, 1, 'nfv-124789', 'img/children/clothes/pants/1741632802637.jpg', 3, 1, 6, NULL, 0, 0);
+(207, 'Штани дитячі Soon', 3, 9, 699.00, 1, 1, 'nfv-124789', 'img/children/clothes/pants/1741632802637.jpg', 3, 1, 6, NULL, 0, 0),
+(225, '213', 14, 4, 123123.00, 1, 2, '123123', '', 1, 1, 52, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1273,7 +1284,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`, `patronymic`, `gender`, `birthday`, `city`) VALUES
-(1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$upcE71qUdmD679PBsxtNP.N9c1cVjFv9gaDe7zabNOj3WjEPuusei', 1, '', 'male', '1970-01-01 16:28:09', ''),
+(1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380961111111', 'ivan@gmail.com', '$2y$10$yXj69y/wzf.sMYZgn1CEleT/YQJsUDRW6VxnUzR6UJR2E6znSlO4u', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', NULL, NULL, 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, NULL, NULL, NULL, NULL);
 
@@ -1462,13 +1473,13 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблиці `orderidproductid`
 --
 ALTER TABLE `orderidproductid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT для таблиці `paymenttype`
@@ -1480,13 +1491,13 @@ ALTER TABLE `paymenttype`
 -- AUTO_INCREMENT для таблиці `productidsizeid`
 --
 ALTER TABLE `productidsizeid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=642;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=663;
 
 --
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
 
 --
 -- AUTO_INCREMENT для таблиці `recipients`
