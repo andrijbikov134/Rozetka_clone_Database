@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 26 2025 р., 14:30
+-- Час створення: Бер 26 2025 р., 15:51
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -1249,7 +1249,7 @@ INSERT INTO `products` (`id`, `title`, `color_id`, `brand_id`, `price`, `materia
 CREATE TABLE `recipients` (
   `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) DEFAULT NULL,
+  `last_name` varchar(200) DEFAULT '',
   `phone` varchar(200) NOT NULL,
   `patronymic` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='recipients';
@@ -1263,7 +1263,7 @@ INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`
 (5, 'Ivan', 'Shevchenko', '+380961111112', ''),
 (6, 'ASD', '', '+381232112312', ''),
 (7, 'dfgdf', '', '+38435345345', ''),
-(8, 'віаі', '', '+383453453453', ''),
+(8, 'Іван4', ' ', '+383453453453', ''),
 (9, 'Іван3', '', '+38324324234', ''),
 (10, '02', '02', '+380000000000', '02'),
 (11, 'пра', '', '+386767686787', ''),
@@ -1289,7 +1289,11 @@ INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`
 (31, 'Марія', '', '+380964567831', ''),
 (32, 'Марія', '', '+380876546373', ''),
 (33, 'Іван', 'Шевченко', '+380964123412', ''),
-(34, 'Іван4', NULL, '+38533233333', '');
+(34, 'Іван4', ' ', '+38533233333', ''),
+(35, 'Іван3', ' ', '+38432423422', ''),
+(36, 'Іван3', ' ', '+38126478324', ''),
+(37, 'Марія', '', '+380675674743', ''),
+(38, 'Іван4', ' ', '+38535345345', '');
 
 -- --------------------------------------------------------
 
@@ -1403,7 +1407,7 @@ INSERT INTO `sizes` (`id`, `title`, `title_key`) VALUES
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) DEFAULT NULL,
+  `last_name` varchar(200) DEFAULT '',
   `phone` varchar(200) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -1419,7 +1423,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`, `patronymic`, `gender`, `birthday`, `city`) VALUES
-(1, 'root', NULL, NULL, 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, '', 'male', '1970-01-01 16:28:09', ''),
+(1, 'root', ' ', NULL, 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380964123412', 'ivan@gmail.com', '$2y$10$OT2XrvUDbh1TuS7Xq37PcusTeLhgM.0pKk.uZ/DZ/LurXvqhVYG/q', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', 'Багряний', '+380966434124', 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів'),
 (19, 'Admin1', 'Франко', '+380671232314', 'franko@sda.ch', '$2y$10$5oR3X7jn9pSHJfRkSiSMluyGLHW0Kz5m7Wz9pr8PXrzgCJN8.irfi', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ');
@@ -1609,13 +1613,13 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблиці `orderidproductid`
 --
 ALTER TABLE `orderidproductid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT для таблиці `paymenttype`
@@ -1639,7 +1643,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблиці `recipients`
 --
 ALTER TABLE `recipients`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT для таблиці `reviews`
@@ -1663,7 +1667,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
