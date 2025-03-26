@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 26 2025 р., 08:44
+-- Час створення: Бер 26 2025 р., 14:30
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -1249,9 +1249,9 @@ INSERT INTO `products` (`id`, `title`, `color_id`, `brand_id`, `price`, `materia
 CREATE TABLE `recipients` (
   `id` int(11) UNSIGNED NOT NULL,
   `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) NOT NULL,
+  `last_name` varchar(200) DEFAULT NULL,
   `phone` varchar(200) NOT NULL,
-  `patronymic` varchar(200) NOT NULL
+  `patronymic` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='recipients';
 
 --
@@ -1264,7 +1264,7 @@ INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`
 (6, 'ASD', '', '+381232112312', ''),
 (7, 'dfgdf', '', '+38435345345', ''),
 (8, 'віаі', '', '+383453453453', ''),
-(9, 'фіавіа', '', '+38324324234', ''),
+(9, 'Іван3', '', '+38324324234', ''),
 (10, '02', '02', '+380000000000', '02'),
 (11, 'пра', '', '+386767686787', ''),
 (12, 'р', '', '+38797898798', ''),
@@ -1288,7 +1288,8 @@ INSERT INTO `recipients` (`id`, `first_name`, `last_name`, `phone`, `patronymic`
 (30, 'Марія', '', '+383243243534', ''),
 (31, 'Марія', '', '+380964567831', ''),
 (32, 'Марія', '', '+380876546373', ''),
-(33, 'Іван', 'Шевченко', '+380964123412', '');
+(33, 'Іван', 'Шевченко', '+380964123412', ''),
+(34, 'Іван4', NULL, '+38533233333', '');
 
 -- --------------------------------------------------------
 
@@ -1608,13 +1609,13 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблиці `orderidproductid`
 --
 ALTER TABLE `orderidproductid`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT для таблиці `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT для таблиці `paymenttype`
@@ -1638,7 +1639,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблиці `recipients`
 --
 ALTER TABLE `recipients`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблиці `reviews`
@@ -1662,7 +1663,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
