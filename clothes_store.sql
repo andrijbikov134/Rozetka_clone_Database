@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 27 2025 р., 08:23
+-- Час створення: Бер 27 2025 р., 08:24
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -1426,7 +1426,8 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `passwor
 (1, 'root', ' ', NULL, 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, '', 'male', '1970-01-01 16:28:09', ''),
 (5, 'Іван', 'Шевченко', '+380964123412', 'ivan@gmail.com', '$2y$10$OT2XrvUDbh1TuS7Xq37PcusTeLhgM.0pKk.uZ/DZ/LurXvqhVYG/q', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', 'Багряний', '+380966434124', 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів'),
-(19, 'Admin1', 'Франко', '+380671232314', 'franko@sda.ch', '$2y$10$5oR3X7jn9pSHJfRkSiSMluyGLHW0Kz5m7Wz9pr8PXrzgCJN8.irfi', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ');
+(19, 'Admin1', 'Франко', '+380671232314', 'franko@sda.ch', '$2y$10$5oR3X7jn9pSHJfRkSiSMluyGLHW0Kz5m7Wz9pr8PXrzgCJN8.irfi', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ'),
+(20, 'Іван3', 'Багряний', '+380966434124', 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів');
 
 --
 -- Індекси збережених таблиць
