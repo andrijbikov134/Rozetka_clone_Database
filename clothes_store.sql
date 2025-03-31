@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 27 2025 р., 08:25
+-- Час створення: Бер 31 2025 р., 13:37
 -- Версія сервера: 10.4.32-MariaDB
 -- Версія PHP: 8.2.12
 
@@ -1423,11 +1423,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `phone`, `email`, `password`, `role_id`, `patronymic`, `gender`, `birthday`, `city`) VALUES
-(1, 'root', ' ', NULL, 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, '', 'male', '1970-01-01 16:28:09', ''),
+(1, 'root', ' root', '+380674443355', 'root@sda.ch', '$2y$10$9iMSSc85Kucof9xi4UaSruNXuQZ5NnpEq3JAJNx.BjzBzcgP9t4fO', 1, 'root', 'male', '1970-01-01 16:28:09', 'Київ'),
 (5, 'Іван', 'Шевченко', '+380964123412', 'ivan@gmail.com', '$2y$10$OT2XrvUDbh1TuS7Xq37PcusTeLhgM.0pKk.uZ/DZ/LurXvqhVYG/q', 2, 'Петрович', 'male', '1970-02-14 00:00:00', 'Київ'),
 (18, 'Іван2', 'Багряний', '+380966434124', 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів'),
-(19, 'Admin1', 'Франко', '+380671232314', 'franko@sda.ch', '$2y$10$5oR3X7jn9pSHJfRkSiSMluyGLHW0Kz5m7Wz9pr8PXrzgCJN8.irfi', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ'),
-(20, 'Іван3', 'Багряний', '+380966434124', 'ivan2@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів');
+(19, 'Admin1', 'Франко', '+380671232314', 'franko@sda.ch', '$2y$10$7Q3YZv8L0UwlYC4JjBcUj.668aP8IWsJjE4lOZtvToxI9QKTVz68O', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ'),
+(32, 'Admin2', 'Франко', '+380671232312', 'franko2@sda.ch', '$2y$10$7Q3YZv8L0UwlYC4JjBcUj.668aP8IWsJjE4lOZtvToxI9QKTVz68O', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ'),
+(33, 'Admin3', 'Франко', '+380671232312', 'franko3@sda.ch', '$2y$10$7Q3YZv8L0UwlYC4JjBcUj.668aP8IWsJjE4lOZtvToxI9QKTVz68O', 1, 'Якович', 'male', '1971-01-01 16:28:09', 'Київ'),
+(34, 'Іван3', 'Багряний', '+380966434123', 'ivan3@gmail.com', '$2y$10$9NFFdaAeyPZs6xdCluRtHewGPHdJUx6bicY03JWyL1uq8wiGuFomK', 2, 'Павлович', 'male', '1981-01-01 18:19:04', 'Львів');
 
 --
 -- Індекси збережених таблиць
@@ -1668,7 +1670,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
